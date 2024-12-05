@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowUpIcon, ArrowDownIcon, PencilIcon, TrashIcon } from "lucide-react";
+import { ArrowUpIcon, ArrowDownIcon, PencilIcon, TrashIcon, Receipt } from "lucide-react";
 import { Transaction } from "@/types/transaction";
 import { TransactionForm } from "./TransactionForm";
 import { toast } from "sonner";
@@ -28,7 +28,10 @@ export const TransactionList = ({ transactions, onDelete, onUpdate }: Transactio
 
   return (
     <Card className="p-6">
-      <h3 className="text-lg font-semibold mb-4">Transactions</h3>
+      <div className="flex items-center gap-2 mb-4">
+        <Receipt className="w-5 h-5 text-gray-500" />
+        <h3 className="text-lg font-semibold">Transactions</h3>
+      </div>
       <div className="space-y-4">
         {transactions.map((transaction) => (
           <div key={transaction.id}>
